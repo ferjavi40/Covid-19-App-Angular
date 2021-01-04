@@ -62,6 +62,7 @@ export class AppComponent {
     });
   }
 
+
   fetchDailyData() {
     this.api.fetchDailyData().subscribe((res: any[]) => {
       this.lineChartLabels = res.map((date) => date['reportDate']);
@@ -80,6 +81,32 @@ export class AppComponent {
         }
       ];
     });
+  }
+
+  fetchDataByCountry(country: string) {
+    this.api.fetchDataByCountry(country).subscribe((res: any[]) => {
+      this.data.confiremd = res['confirmed']['value'];
+      this.data.recovered = res['recovered']['value'];
+      this.data.deaths = res['deaths']['value'];
+      this.data.lastupdate = res['lastUpdate'];
+
+      this.barChartData = [
+        {
+          data: [this.data.confiremd, this.data.recovered, this.data.deaths],
+          label: 'People'
+        }
+      ];
+    });
+  }
+  countryChanged(value: string) {
+    this.country = value;
+    if(value == 'global') {
+      this.fetchData();
+      this.global = true;
+    } else {
+      this.fetchDataByCountry(value);
+      this.global = false;
+    }
   }
 
 

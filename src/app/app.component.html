@@ -52,7 +52,7 @@
             <div class="col text-center mb-3">
                 <form >
                     <div class="form-group">
-                        <select class="form-control" id="country">
+                        <select (change)="countryChanged($event.target.value)" class="form-control" id="country">
                             <option selected value="global">Global</option>
                             <option *ngFor="let country of countries" value="{{country}}">{{country}}</option>
                         </select>
@@ -66,7 +66,7 @@
                 <div class="card card-infected">
                     <div class="card-body">
                         <h3 class="card-title">Infectados</h3>
-                        <p class="card-text"> {{data.confiremd | number}} </p>
+                        <p class="card-text" [countUp]="data.confiremd"> {{data.confiremd | number}} </p>
                         <p>{{data.lastupdate | date:'longDate'}}</p>
                         <p>Numero de casos activos del Covid</p>
                         
@@ -79,7 +79,7 @@
                 <div class="card card-infected">
                     <div class="card-body">
                         <h3 class="card-title">Recuperados</h3>
-                        <p class="card-text"> {{data.recovered | number}} </p>
+                        <p class="card-text" [countUp]="data.recovered"> {{data.recovered | number}} </p>
                         <p>{{data.lastupdate | date:'longDate'}}</p>
                         <p>Numero de recuperados del Covid</p>
                         
@@ -92,13 +92,35 @@
                 <div class="card card-infected">
                     <div class="card-body">
                         <h3 class="card-title">Muertes</h3>
-                        <p class="card-text"> {{data.deaths | number}} </p>
+                        <p class="card-text" [countUp]="data.deaths"> {{data.deaths | number}} </p>
                         <p>{{data.lastupdate | date:'longDate'}}</p>
                         <p>Numero de muertes del Covid</p>
                         
                     </div>
                 </div>
 
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="graph" class="py-3">
+    <div class="container">
+        <div class="row">
+            <div class="col chart-wrapper">
+                <canvas *ngIf="global" baseChart 
+                [chartType]="lineChartType"
+                [datasets]="lineChartData"
+                [labels]="lineChartLabels">
+                    
+
+                </canvas>
+                <canvas *ngIf="!global"  baseChart
+                [chartType]="barChartType"
+                [datasets]="barChartData"
+                [labels]="barChartLabels">
+
+                </canvas>
             </div>
         </div>
     </div>
