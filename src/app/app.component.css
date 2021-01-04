@@ -1,0 +1,26 @@
+.margen{
+    margin-top: 4em;
+}
+
+#header{
+    background: url('../assets/images/1.jpg') center center no-repeat;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    filter:brightness(0.8); 
+    
+
+}
+
+#header .h1-tittle{
+    font-size: 60px;
+}
+
+.colorText{
+    color: white;
+    font-weight: bold;
+    
+}
+
+
