@@ -8,14 +8,13 @@
                         <span class="navbar-toggler-icon" style="color: white"></span>
                     </button>
 
-                    <a class="navbar-brand" href="#">
-                        <i class="fas fa-home" style="font-size: 1em; color: white;"></i>
-                    </a>
+
+                    <h2 class="ml-3 text-light">Fernando<span class="text-primary ml-2">Ramirez</span> </h2>
 
                     <div class="collapse navbar-collapse" id="navigation-bar">
                         <ul class="navbar-nav ml-auto">
-                            <li class="nav-item"><a class="nav-link" href="#statistic">Estadisticas</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#footer">Contacto</a></li>
+                            <li class="nav-item mr-5"><a class="nav-link" href="#stadistic">Estadisticas</a></li>
+                            <li class="nav-item mr-5"><a class="nav-link" href="#header">Inicio</a></li>
                         </ul>
                     </div>
                 </nav>
@@ -30,7 +29,8 @@
             <div class="col text-center margen">
                 <h1 class="h1-tittle colorText">COVID-19</h1>
                 <p class="colorText">
-                    La enfermedad del Covid-19 es una nueva enfermedad descubierta y ha causado la nueva pandemia mundial.
+                    La enfermedad del Covid-19 es una nueva enfermedad descubierta y ha causado la nueva pandemia
+                    mundial.
                 </p>
             </div>
         </div>
@@ -38,19 +38,16 @@
 </section>
 
 
-<section id="stadistic" >
+<section id="stadistic">
     <div class="container text-center">
-        <div class="row">
-            <div class="col text-left">
-                <h2>
-                    Estadisiticas
-                </h2>
-            </div>
-        </div>
+        <h2 class="mb-4">
+            Estadisticas
+        </h2>
+
 
         <div class="row">
             <div class="col text-center mb-3">
-                <form >
+                <form>
                     <div class="form-group">
                         <select (change)="countryChanged($event.target.value)" class="form-control" id="country">
                             <option selected value="global">Global</option>
@@ -69,7 +66,7 @@
                         <p class="card-text" [countUp]="data.confiremd"> {{data.confiremd | number}} </p>
                         <p>{{data.lastupdate | date:'longDate'}}</p>
                         <p>Numero de casos activos del Covid</p>
-                        
+
                     </div>
                 </div>
 
@@ -82,7 +79,7 @@
                         <p class="card-text" [countUp]="data.recovered"> {{data.recovered | number}} </p>
                         <p>{{data.lastupdate | date:'longDate'}}</p>
                         <p>Numero de recuperados del Covid</p>
-                        
+
                     </div>
                 </div>
 
@@ -95,7 +92,7 @@
                         <p class="card-text" [countUp]="data.deaths"> {{data.deaths | number}} </p>
                         <p>{{data.lastupdate | date:'longDate'}}</p>
                         <p>Numero de muertes del Covid</p>
-                        
+
                     </div>
                 </div>
 
@@ -108,17 +105,13 @@
     <div class="container">
         <div class="row">
             <div class="col chart-wrapper">
-                <canvas *ngIf="global" baseChart 
-                [chartType]="lineChartType"
-                [datasets]="lineChartData"
-                [labels]="lineChartLabels">
-                    
+                <canvas *ngIf="global" baseChart [chartType]="lineChartType" [datasets]="lineChartData"
+                    [labels]="lineChartLabels">
+
 
                 </canvas>
-                <canvas *ngIf="!global"  baseChart
-                [chartType]="barChartType"
-                [datasets]="barChartData"
-                [labels]="barChartLabels">
+                <canvas *ngIf="!global" baseChart [chartType]="barChartType" [datasets]="barChartData"
+                    [labels]="barChartLabels">
 
                 </canvas>
             </div>
@@ -127,17 +120,20 @@
 </section>
 
 <footer class="container-fluid navbar-dark bg-dark text-light text-center" #footer>
-    
-        
-    <p class="py-2">Fernando Ramirez  &copy; {{ anio }} - ferjaviramirez@gmail.com</p>
 
 
-<ul class="list-inline">
-    <a href="https://github.com/ferjavi40 " target="_blank "><i class="fab fa-github mr-3 py-3 fa-lg iconsFooter "></i></a>
-    <a href="https://www.linkedin.com/in/fernando-javier-ramirez-obando-345a03163/ " target="_blank "><i class="fab fa-linkedin mr-3 py-3 fa-lg iconsFooter "></i></a>
-    <a href="https://www.facebook.com/fernando.javier40/ " target="_blank "><i class="fab fa-facebook mr-3 py-3 fa-lg iconsFooter "></i></a>
+    <p class="py-2">Fernando Ramirez &copy; {{ anio }} - ferjaviramirez@gmail.com</p>
 
-</ul>
+
+    <ul class="list-inline">
+        <a href="https://github.com/ferjavi40 " target="_blank "><i
+                class="fab fa-github mr-3 py-3 fa-lg iconsFooter "></i></a>
+        <a href="https://www.linkedin.com/in/fernando-javier-ramirez-obando-345a03163/ " target="_blank "><i
+                class="fab fa-linkedin mr-3 py-3 fa-lg iconsFooter "></i></a>
+        <a href="https://www.facebook.com/fernando.javier40/ " target="_blank "><i
+                class="fab fa-facebook mr-3 py-3 fa-lg iconsFooter "></i></a>
+
+    </ul>
 
 
 
