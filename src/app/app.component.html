@@ -38,22 +38,73 @@
 </section>
 
 
-<section id="stadistic " class="">
+<section id="stadistic" >
     <div class="container text-center">
         <div class="row">
-            <div class="text-left">
+            <div class="col text-left">
                 <h2>
                     Estadisiticas
                 </h2>
             </div>
         </div>
+
         <div class="row">
-            Grafico aqui
+            <div class="col text-center mb-3">
+                <form >
+                    <div class="form-group">
+                        <select class="form-control" id="country">
+                            <option selected value="global">Global</option>
+                            <option *ngFor="let country of countries" value="{{country}}">{{country}}</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 md-3">
+                <div class="card card-infected">
+                    <div class="card-body">
+                        <h3 class="card-title">Infectados</h3>
+                        <p class="card-text"> {{data.confiremd | number}} </p>
+                        <p>{{data.lastupdate | date:'longDate'}}</p>
+                        <p>Numero de casos activos del Covid</p>
+                        
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-4 md-3">
+                <div class="card card-infected">
+                    <div class="card-body">
+                        <h3 class="card-title">Recuperados</h3>
+                        <p class="card-text"> {{data.recovered | number}} </p>
+                        <p>{{data.lastupdate | date:'longDate'}}</p>
+                        <p>Numero de recuperados del Covid</p>
+                        
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-4 md-3">
+                <div class="card card-infected">
+                    <div class="card-body">
+                        <h3 class="card-title">Muertes</h3>
+                        <p class="card-text"> {{data.deaths | number}} </p>
+                        <p>{{data.lastupdate | date:'longDate'}}</p>
+                        <p>Numero de muertes del Covid</p>
+                        
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
 </section>
 
-<footer class="container-fluid navbar-dark bg-dark text-light text-center">
+<footer class="container-fluid navbar-dark bg-dark text-light text-center" #footer>
     
         
     <p class="py-2">Fernando Ramirez  &copy; {{ anio }} - ferjaviramirez@gmail.com</p>
